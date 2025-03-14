@@ -8,9 +8,9 @@ datasource db {
 }
 
 model Restaurante {
-  id          Int      @id @default(autoincrement())
+  id          String   @id @default(uuid())
   nome        String
-  slug        String   @unique 
+  slug        String   @unique
   descricao   String?
   endereco    String?
   telefone    String?
@@ -28,7 +28,7 @@ model Bebida {
   descricao     String?
   preco         Float
   imageUrl      String?
-  restauranteId Int
+  restauranteId String
   restaurante   Restaurante @relation(fields: [restauranteId], references: [id])
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
@@ -46,8 +46,8 @@ model Menu {
   doce           String
   precoDoce      Float
   precoTotal     Float       @default(0.0)
-  imageUrl       String? 
-  restauranteId  Int
+  imageUrl       String?
+  restauranteId  String
   restaurante    Restaurante @relation(fields: [restauranteId], references: [id])
   createdAt      DateTime    @default(now())
   updatedAt      DateTime    @updatedAt

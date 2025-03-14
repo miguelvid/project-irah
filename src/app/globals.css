@@ -9,20 +9,21 @@ body {
 @layer base {
   :root {
     /* Deep emerald green from the image */
-    --background: 161 60% 19%;
+    --background: 162 64% 12%;
+
     --foreground: 43 57% 68%;
 
     /* Card colors */
-    --card: 161 60% 19%;
+    --card: 162 64% 12%;
     --card-foreground: 43 57% 68%;
 
     /* Popover colors */
-    --popover: 161 60% 19%;
+    --popover: 162 64% 12%;
     --popover-foreground: 43 57% 68%;
 
     /* Primary color is the gold/amber from the image */
     --primary: 43 57% 68%;
-    --primary-foreground: 161 60% 19%;
+    --primary-foreground: 162 64% 12%;
 
     /* Secondary colors */
     --secondary: 162 34% 27%;
@@ -41,13 +42,13 @@ body {
     --destructive-foreground: 43 57% 68%;
 
     /* Border, input, and ring colors */
-    --border: 161 33% 25%;
-    --input: 161 33% 25%;
+    --border: 162 64% 12%;
+    --input: 162 64% 12%;
     --ring: 43 57% 68%;
 
     /* Chart colors */
     --chart-1: 43 57% 68%;
-    --chart-2: 161 60% 19%;
+    --chart-2: 162 64% 12%;
     --chart-3: 162 34% 27%;
     --chart-4: 38 74% 66%;
     --chart-5: 27 87% 67%;

@@ -44,32 +44,206 @@ const main = async () => {
       await tx.bebida.createMany({
         data: [
           {
-            nome: "Suco de Laranja Natural",
-            descricao: "Suco fresco de laranja, sem adição de açúcar.",
-            preco: 8.5,
-            imageUrl: "https://seusite.com/imagens/bebidas/suco-laranja.jpg",
-            restauranteId: restaurante.id,
-          },
-          {
-            nome: "Refrigerante Cola",
-            descricao: "Refrigerante de cola gelado.",
-            preco: 6.0,
-            imageUrl: "https://seusite.com/imagens/bebidas/refri-cola.jpg",
-            restauranteId: restaurante.id,
-          },
-          {
-            nome: "Água com Gás",
-            descricao: "Água mineral com gás e limão.",
-            preco: 4.5,
-            imageUrl: "https://seusite.com/imagens/bebidas/agua-gas.jpg",
-            restauranteId: restaurante.id,
-          },
-          {
-            nome: "Cerveja Artesanal",
-            descricao: "Cerveja artesanal da casa, 500ml.",
-            preco: 12.0,
+            nome: "DV Catena Chardonnay",
+            descricao: "Vinho branco da variedade Chardonnay.",
+            preco: 169.0,
             imageUrl:
-              "https://seusite.com/imagens/bebidas/cerveja-artesanal.jpg",
+              "https://seusite.com/imagens/bebidas/dv-catena-chardonnay.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "La Linda Chardonnay",
+            descricao: "Vinho branco Chardonnay.",
+            preco: 117.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/la-linda-chardonnay.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Las Perdices Blanc",
+            descricao: "Vinho branco.",
+            preco: 127.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/las-perdices-blanc.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Pulenta - Sauvignon Blanc",
+            descricao: "Vinho branco da variedade Sauvignon Blanc.",
+            preco: 137.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/pulenta-sauvignon-blanc.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Angelica Zapata",
+            descricao: "Vinho tinto.",
+            preco: 294.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/angelica-zapata.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "DV Catena Malbec",
+            descricao: "Vinho tinto da variedade Malbec.",
+            preco: 202.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/dv-catena-malbec.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "DV Catena Cabernet Malbec",
+            descricao: "Vinho tinto da variedade Cabernet Malbec.",
+            preco: 175.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/dv-catena-cabernet-malbec.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Renacer Milamore Cabernet Malbec",
+            descricao: "Vinho tinto da variedade Cabernet Malbec.",
+            preco: 166.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/renacer-milamore-cabernet-malbec.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "La Linda Malbec",
+            descricao: "Vinho tinto da variedade Malbec.",
+            preco: 117.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/la-linda-malbec.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "DV Nicásia Cabernet Malbec",
+            descricao: "Vinho tinto da variedade Cabernet Malbec.",
+            preco: 127.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/dv-nicasia-cabernet-malbec.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "DV San Felicien Malbec",
+            descricao: "Vinho tinto da variedade Malbec.",
+            preco: 132.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/dv-san-felicien-malbec.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Las Perdices Malbec",
+            descricao: "Vinho tinto da variedade Malbec.",
+            preco: 127.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/las-perdices-malbec.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Cordero con Piel de Lobo",
+            descricao: "Vinho rosé.",
+            preco: 127.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/cordero-con-piel-de-lobo.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Pulenta Rosé",
+            descricao: "Vinho rosé.",
+            preco: 175.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/pulenta-rose.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Castellamare Branca/Rosé - Moscatel",
+            descricao: "Espumante branco/rosé da variedade Moscatel.",
+            preco: 132.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/castellamare-moscatel.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Garibaldi Branca/Rosé - Brut",
+            descricao: "Espumante branco/rosé Brut.",
+            preco: 108.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/garibaldi-brut.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Las Perdices Branca/Rosé - Brut",
+            descricao: "Espumante branco/rosé Brut.",
+            preco: 132.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/las-perdices-brut.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Sottano - Brut",
+            descricao: "Espumante Brut.",
+            preco: 127.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/sottano-brut.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Los Haroldos Rosé - Brut",
+            descricao: "Espumante rosé Brut.",
+            preco: 137.0,
+            imageUrl:
+              "https://seusite.com/imagens/bebidas/los-haroldos-rose-brut.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Stella",
+            descricao: "Cerveja Lager.",
+            preco: 26.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/stella.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Cerveja Lager",
+            descricao: "Cerveja Lager.",
+            preco: 29.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/cerveja-lager.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Cerveja IPA",
+            descricao: "Cerveja IPA.",
+            preco: 29.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/cerveja-ipa.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Cerveja Weiss",
+            descricao: "Cerveja Weiss.",
+            preco: 29.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/cerveja-weiss.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Água C/E S/Bás",
+            descricao: "Água com ou sem gás.",
+            preco: 7.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/agua.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Coca-Cola",
+            descricao: "Refrigerante de cola.",
+            preco: 12.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/coca-cola.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Suco com/Tem",
+            descricao: "Suco com ou sem açúcar.",
+            preco: 15.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/suco.jpg",
+            restauranteId: restaurante.id,
+          },
+          {
+            nome: "Tônica",
+            descricao: "Água tônica.",
+            preco: 12.0,
+            imageUrl: "https://seusite.com/imagens/bebidas/tonica.jpg",
             restauranteId: restaurante.id,
           },
         ],
