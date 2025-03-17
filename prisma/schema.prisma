@@ -7,48 +7,55 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Restaurante {
+model Restaurant {
   id          String   @id @default(uuid())
-  nome        String
+  name        String
   slug        String   @unique
-  descricao   String?
-  endereco    String?
-  telefone    String?
+  description String?
+  address     String?
+  phone       String?
   imageAvatar String
   imageCover  String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  bebidas     Bebida[]
+  drinks      Drink[]
   menus       Menu[]
 }
 
-model Bebida {
-  id            Int         @id @default(autoincrement())
-  nome          String
-  descricao     String?
-  preco         Float
-  imageUrl      String?
-  restauranteId String
-  restaurante   Restaurante @relation(fields: [restauranteId], references: [id])
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
+model Drink {
+  id           Int           @id @default(autoincrement())
+  name         String
+  description  String?
+  price        Float
+  category     DrinkCategory
+  restaurantId String
+  restaurant   Restaurant    @relation(fields: [restaurantId], references: [id])
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 }
 
 model Menu {
-  id             Int         @id @default(autoincrement())
-  nome           String
-  entrada        String
-  precoEntrada   Float
-  salada         String
-  precoSalada    Float
-  pratoPrincipal String
-  precoPrato     Float
-  doce           String
-  precoDoce      Float
-  precoTotal     Float       @default(0.0)
-  imageUrl       String?
-  restauranteId  String
-  restaurante    Restaurante @relation(fields: [restauranteId], references: [id])
-  createdAt      DateTime    @default(now())
-  updatedAt      DateTime    @updatedAt
+  id              Int        @id @default(autoincrement())
+  name            String
+  starter         String
+  starterPrice    Float
+  salad           String
+  saladPrice      Float
+  mainCourse      String
+  mainCoursePrice Float
+  dessert         String
+  dessertPrice    Float
+  totalPrice      Float      @default(0.0)
+  imageUrl        String?
+  restaurantId    String
+  restaurant      Restaurant @relation(fields: [restaurantId], references: [id])
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+enum DrinkCategory {
+  WINE
+  SPARKLING
+  BEER
+  DIVERSE
 }

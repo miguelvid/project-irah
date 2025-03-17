@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
@@ -10,7 +11,7 @@ interface RestaurantPageProps {
 
 const RestaurantPage = async ({ params }: RestaurantPageProps) => {
   const { slug } = await params;
-  const restaurant = await db.restaurante.findUnique({ where: { slug } });
+  const restaurant = await db.restaurant.findUnique({ where: { slug } });
   if (!restaurant) {
     return notFound();
   }
@@ -20,7 +21,7 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
       <div className="flex flex-col items-center gap-2">
         <Image
           src="/logo.png"
-          alt={restaurant.nome}
+          alt={restaurant.name}
           width={540}
           height={540}
           className=""
@@ -39,7 +40,7 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
           variant="outline"
           className="border-amber-300 px-8 py-3 tracking-wider text-amber-200 duration-300 marker:transition hover:bg-amber-300 hover:text-emerald-900"
         >
-          Cardapio bebidas
+          <Link href={`/${slug}/bebidas`}>Cardapio bebidas</Link>
         </Button>
         <Button
           variant="outline"
