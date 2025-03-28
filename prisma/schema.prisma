@@ -28,6 +28,7 @@ model Drink {
   description  String?
   price        Float
   category     DrinkCategory
+  wineType     WineType?
   restaurantId String
   restaurant   Restaurant    @relation(fields: [restaurantId], references: [id])
   createdAt    DateTime      @default(now())
@@ -58,4 +59,10 @@ enum DrinkCategory {
   SPARKLING
   BEER
   DIVERSE
+}
+
+enum WineType {
+  RED
+  WHITE
+  ROSE
 }

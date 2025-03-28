@@ -48,6 +48,7 @@ const main = async () => {
             description: "Vinho branco da variedade Chardonnay.",
             price: 169.0,
             category: "WINE",
+            wineType: "WHITE",
             restaurantId: restaurante.id,
           },
           {
@@ -55,6 +56,7 @@ const main = async () => {
             description: "Vinho branco Chardonnay.",
             price: 117.0,
             category: "WINE",
+            wineType: "WHITE",
             restaurantId: restaurante.id,
           },
           {
@@ -62,6 +64,7 @@ const main = async () => {
             description: "Vinho branco.",
             price: 127.0,
             category: "WINE",
+            wineType: "WHITE",
             restaurantId: restaurante.id,
           },
           {
@@ -69,6 +72,7 @@ const main = async () => {
             description: "Vinho branco da variedade Sauvignon Blanc.",
             price: 137.0,
             category: "WINE",
+            wineType: "WHITE",
             restaurantId: restaurante.id,
           },
           {
@@ -76,6 +80,7 @@ const main = async () => {
             description: "Vinho tinto.",
             price: 294.0,
             category: "WINE",
+            wineType: "RED",
             restaurantId: restaurante.id,
           },
           {
@@ -83,6 +88,7 @@ const main = async () => {
             description: "Vinho tinto da variedade Malbec.",
             price: 202.0,
             category: "WINE",
+            wineType: "RED",
             restaurantId: restaurante.id,
           },
           {
@@ -90,6 +96,7 @@ const main = async () => {
             description: "Vinho tinto da variedade Cabernet Malbec.",
             price: 175.0,
             category: "WINE",
+            wineType: "RED",
             restaurantId: restaurante.id,
           },
           {
@@ -97,6 +104,7 @@ const main = async () => {
             description: "Vinho tinto da variedade Cabernet Malbec.",
             price: 166.0,
             category: "WINE",
+            wineType: "RED",
             restaurantId: restaurante.id,
           },
           {
@@ -104,6 +112,7 @@ const main = async () => {
             description: "Vinho tinto da variedade Malbec.",
             price: 117.0,
             category: "WINE",
+            wineType: "RED",
             restaurantId: restaurante.id,
           },
           {
@@ -111,6 +120,7 @@ const main = async () => {
             description: "Vinho tinto da variedade Cabernet Malbec.",
             price: 127.0,
             category: "WINE",
+            wineType: "RED",
             restaurantId: restaurante.id,
           },
           {
@@ -118,6 +128,7 @@ const main = async () => {
             description: "Vinho tinto da variedade Malbec.",
             price: 132.0,
             category: "WINE",
+            wineType: "RED",
             restaurantId: restaurante.id,
           },
           {
@@ -125,6 +136,7 @@ const main = async () => {
             description: "Vinho tinto da variedade Malbec.",
             price: 127.0,
             category: "WINE",
+            wineType: "RED",
             restaurantId: restaurante.id,
           },
           {
@@ -132,6 +144,7 @@ const main = async () => {
             description: "Vinho rosé.",
             price: 127.0,
             category: "WINE",
+            wineType: "ROSE",
             restaurantId: restaurante.id,
           },
           {
@@ -139,6 +152,7 @@ const main = async () => {
             description: "Vinho rosé.",
             price: 175.0,
             category: "WINE",
+            wineType: "ROSE",
             restaurantId: restaurante.id,
           },
           {
@@ -235,8 +249,6 @@ const main = async () => {
         ],
       });
       console.log("Bebidas criadas.");
-
-      // Cria alguns menus
       // Cria alguns menus
       await tx.menu.createMany({
         data: [

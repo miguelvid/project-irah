@@ -1,4 +1,5 @@
 import { Drink } from "@prisma/client";
+import Link from "next/link";
 
 import { db } from "@/lib/prisma";
 
@@ -42,26 +43,14 @@ const MenuDrinkPage = async ({ params }: MenuDrinkPageProps) => {
 
     const drinks = restaurant.drinks || [];
 
-    // Group drinks by category
     const wineWhite = drinks.filter(
-      (drink) =>
-        (drink.category === "WINE" &&
-          drink.name.toLowerCase().includes("branco")) ||
-        drink.name.toLowerCase().includes("chardonnay") ||
-        drink.name.toLowerCase().includes("sauvignon"),
+      (drink) => drink.category === "WINE" && drink.wineType === "WHITE",
     );
     const wineRed = drinks.filter(
-      (drink) =>
-        (drink.category === "WINE" &&
-          drink.name.toLowerCase().includes("tinto")) ||
-        drink.name.toLowerCase().includes("malbec") ||
-        drink.name.toLowerCase().includes("cabernet"),
+      (drink) => drink.category === "WINE" && drink.wineType === "RED",
     );
     const wineRose = drinks.filter(
-      (drink) =>
-        (drink.category === "WINE" &&
-          drink.name.toLowerCase().includes("rosé")) ||
-        drink.name.toLowerCase().includes("rose"),
+      (drink) => drink.category === "WINE" && drink.wineType === "ROSE",
     );
     const sparkling = drinks.filter((drink) => drink.category === "SPARKLING");
     const beers = drinks.filter((drink) => drink.category === "BEER");
@@ -71,12 +60,14 @@ const MenuDrinkPage = async ({ params }: MenuDrinkPageProps) => {
       <div className="relative mx-auto max-w-3xl bg-[#f4eed5] p-6">
         {/* Header */}
         <div className="relative z-10 mb-12 text-center">
-          <h1 className="font-serif text-5xl tracking-wider text-green-800">
-            IRÁH
-          </h1>
-          <h2 className="mt-2 text-2xl uppercase tracking-widest text-green-800">
-            GASTRONOMIA
-          </h2>
+          <Link href={`/${slug}`}>
+            <h1 className="font-serif text-5xl tracking-wider text-green-800">
+              IRÁH
+            </h1>
+            <h2 className="mt-2 text-2xl uppercase tracking-widest text-green-800">
+              GASTRONOMIA
+            </h2>
+          </Link>
         </div>
 
         {/* Menu content */}
