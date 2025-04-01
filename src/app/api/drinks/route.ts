@@ -78,11 +78,10 @@ export async function DELETE(req: Request) {
     await prisma.drink.delete({
       where: { id: parseInt(id as string, 10) },
     });
-    return NextResponse.json(
-      { message: "Bebida excluída com sucesso." },
-      { status: 204 },
-    );
+    // Retorne apenas o status 204 sem corpo
+    return new Response(null, { status: 204 });
   } catch (error) {
+    console.error("Erro ao excluir bebida:", error); // Log do erro
     return NextResponse.json(
       { error: "Erro ao excluir bebida." },
       { status: 500 },
