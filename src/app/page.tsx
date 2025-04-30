@@ -1,20 +1,18 @@
+// app/page.tsx
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/prisma";
 
-interface RestaurantPageProps {
-  params: { slug: string };
-}
-
-const RestaurantPage = async ({ params }: RestaurantPageProps) => {
-  const { slug } = await params;
-  const restaurant = await db.restaurant.findUnique({ where: { slug } });
+export default async function HomePage() {
+  // Busca o restaurante padrão (ex: primeiro ou um com slug fixo)
+  const restaurant = await db.restaurant.findFirst(); 
+  
   if (!restaurant) {
-    return notFound();
+    return <div>Nenhum restaurante encontrado</div>;
   }
+
   return (
     <div className="flex h-screen flex-col items-center justify-center px-6 pt-0">
       {/* LOGO e TITULO */}
@@ -24,33 +22,33 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
           alt={restaurant.name}
           width={540}
           height={540}
-          className=""
         />
       </div>
+      
       {/* BEM VINDO */}
       <div className="pt-15 space-y-2 text-center">
         <h3 className="text-2xl font-semibold">Seja bem-vindo!</h3>
         <p className="opacity-75">
-          Memoria afetiva, alta gastronomia e muito sabor. Vamos surpreender o
+          Memória afetiva, alta gastronomia e muito sabor. Vamos surpreender o
           seu paladar! Menu exclusivo e único por noite!
         </p>
       </div>
+      
+      {/* BOTÕES */}
       <div className="grid gap-4 pt-14">
         <Button
           variant="outline"
-          className="border-amber-300 px-8 py-3 tracking-wider text-amber-200 duration-300 marker:transition hover:bg-amber-300 hover:text-emerald-900"
+          className="border-amber-300 px-8 py-3 tracking-wider text-amber-200 hover:bg-amber-300 hover:text-emerald-900 transition duration-300"
         >
-          <Link href={`/${slug}/bebidas`}>Cardapio bebidas</Link>
+          <Link href={`/irh-gastronomia/bebidas`}>Cardápio bebidas</Link>
         </Button>
         <Button
           variant="outline"
-          className="border- border-amber-300 px-8 py-3 tracking-wider text-amber-200 transition duration-300 hover:bg-amber-300 hover:text-emerald-900"
+          className="border-amber-300 px-8 py-3 tracking-wider text-amber-200 hover:bg-amber-300 hover:text-emerald-900 transition duration-300"
         >
           Reservas
         </Button>
       </div>
     </div>
   );
-};
-
-export default RestaurantPage;
+}
