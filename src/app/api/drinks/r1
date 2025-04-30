@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
@@ -8,7 +9,7 @@ export async function GET() {
   try {
     const drinks = await prisma.drink.findMany();
     return NextResponse.json(drinks, { status: 200 });
-  } catch {
+  } catch (error) {
     return NextResponse.json(
       { error: "Erro ao buscar bebidas." },
       { status: 500 },
@@ -22,6 +23,7 @@ export async function POST(req: Request) {
   const { name, description, price, category, wineType, restaurantId } = body;
 
   try {
+    console.log("Dados recebidos:", body);
     const newDrink = await prisma.drink.create({
       data: {
         name,
@@ -33,7 +35,8 @@ export async function POST(req: Request) {
       },
     });
     return NextResponse.json(newDrink, { status: 201 });
-  } catch {
+  } catch (error) {
+    console.error("Erro ao criar bebida:", error);
     return NextResponse.json(
       { error: "Erro ao criar bebida." },
       { status: 500 },
@@ -58,7 +61,7 @@ export async function PUT(req: Request) {
       },
     });
     return NextResponse.json(updatedDrink, { status: 200 });
-  } catch {
+  } catch (error) {
     return NextResponse.json(
       { error: "Erro ao atualizar bebida." },
       { status: 500 },
@@ -76,7 +79,8 @@ export async function DELETE(req: Request) {
       where: { id: parseInt(id as string, 10) },
     });
     return new Response(null, { status: 204 });
-  } catch {
+  } catch (error) {
+    console.error("Erro ao excluir bebida:", error);
     return NextResponse.json(
       { error: "Erro ao excluir bebida." },
       { status: 500 },

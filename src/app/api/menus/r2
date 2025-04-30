@@ -8,7 +8,8 @@ export async function GET() {
   try {
     const menus = await prisma.menu.findMany();
     return NextResponse.json(menus, { status: 200 });
-  } catch {
+  } catch (error) {
+    console.error("Erro ao buscar menus:", error);
     return NextResponse.json(
       { error: "Erro ao buscar menus." },
       { status: 500 },
@@ -52,7 +53,8 @@ export async function POST(req: Request) {
       },
     });
     return NextResponse.json(newMenu, { status: 201 });
-  } catch {
+  } catch (error) {
+    console.error("Erro ao criar menu:", error);
     return NextResponse.json({ error: "Erro ao criar menu." }, { status: 500 });
   }
 }
@@ -93,7 +95,8 @@ export async function PUT(req: Request) {
       },
     });
     return NextResponse.json(updatedMenu, { status: 200 });
-  } catch {
+  } catch (error) {
+    console.error("Erro ao atualizar menu:", error);
     return NextResponse.json(
       { error: "Erro ao atualizar menu." },
       { status: 500 },
@@ -111,7 +114,8 @@ export async function DELETE(req: Request) {
       where: { id: parseInt(id as string, 10) },
     });
     return new Response(null, { status: 204 });
-  } catch {
+  } catch (error) {
+    console.error("Erro ao excluir menu:", error);
     return NextResponse.json(
       { error: "Erro ao excluir menu." },
       { status: 500 },
