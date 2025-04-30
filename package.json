@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generete && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint" 
   },
   "prisma": {
     "seed": "ts-node ./prisma/seed.ts"
