@@ -1,3 +1,4 @@
+//MENUS
 export interface Menu {
   id: number;
   name: string;
@@ -12,7 +13,7 @@ export interface Menu {
   totalPrice: number;
   imageUrl: string;
 }
-
+// BEBIDAS
 export interface Drink {
   id: number;
   name: string;
@@ -22,6 +23,8 @@ export interface Drink {
   wineType: 'RED' | 'WHITE' | 'ROSE';
 }
 
+
+// FORMULÁRIOS MENUS
 export interface MenuFormData {
   name: string;
   starter: string;
@@ -36,6 +39,7 @@ export interface MenuFormData {
   imageUrl: string;
 }
 
+// FORMULÁRIOS BEBIDAS
 export interface DrinkFormData {
   name: string;
   description: string;
@@ -44,6 +48,7 @@ export interface DrinkFormData {
   wineType: 'RED' | 'WHITE' | 'ROSE';
 }
 
+// NOTIFICAÇÕES
 export interface NotificationType {
   type: 'success' | 'error';
   message: string;

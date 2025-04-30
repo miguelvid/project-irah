@@ -8,7 +8,7 @@ export default async function HomePage() {
   const restaurant = await getRestaurantBySlug("irh-gastronomia").catch(() => null);
 
   if (!restaurant) {
-    return <div>Nenhum restaurante encontrado</div>;
+    return <div>ERRO AO CARREGAR PAGINA DO RESTAURANTE</div>;
   }
 
   return (
@@ -20,12 +20,12 @@ export default async function HomePage() {
           alt={restaurant.name}
           width={540}
           height={540}
-          priority // Adicionado para imagens críticas
+          priority
         />
       </div>
       
       {/* BEM VINDO */}
-      <div className="pt-16 space-y-2 text-center"> {/* Corrigido pt-15 para pt-16 */}
+      <div className="pt-16 space-y-2 text-center">
         <h3 className="text-2xl font-semibold">Seja bem-vindo!</h3>
         <p className="opacity-75">
           Memória afetiva, alta gastronomia e muito sabor. Vamos surpreender o
@@ -36,7 +36,7 @@ export default async function HomePage() {
       {/* BOTÕES */}
       <div className="grid gap-4 pt-14">
         <Button
-          asChild // Adicionado para integração correta com Link
+          asChild
           variant="outline"
           className="border-amber-300 px-8 py-3 tracking-wider text-amber-200 hover:bg-amber-300 hover:text-emerald-900 transition duration-300"
         >

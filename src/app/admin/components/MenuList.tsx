@@ -1,4 +1,3 @@
-// components/MenuList.tsx
 'use client';
 
 import { Menu } from '../types/admin';

@@ -1,4 +1,3 @@
-// components/DrinkList.tsx
 'use client';
 
 import { Drink } from '../types/admin';

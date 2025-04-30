@@ -72,7 +72,7 @@ const MenuDrinkPage = async ({ params }: MenuDrinkPageProps) => {
 
         {/* Menu content */}
         <div className="relative z-10">
-          {/* VINHOS section header */}
+          {/* VINHOS section*/}
           {(wineWhite.length > 0 ||
             wineRed.length > 0 ||
             wineRose.length > 0) && (
