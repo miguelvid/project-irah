@@ -4,7 +4,7 @@ import Link from "next/link";
 import { db } from "@/lib/prisma";
 
 interface MenuDrinkPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 const formatPrice = (price: number) => {
@@ -29,7 +29,7 @@ const DrinkList = ({ drinks, title }: { drinks: Drink[]; title: string }) => (
 );
 
 const MenuDrinkPage = async ({ params }: MenuDrinkPageProps) => {
-  const { slug } = params;
+  const { slug } = await params;
 
   try {
     const restaurant = await db.restaurant.findUnique({
