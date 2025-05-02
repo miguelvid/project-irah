@@ -1,25 +1,20 @@
-// src/app/api/auth/logout/route.ts
-import { deleteCookie } from "cookies-next";
+// typescript
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-// Mesmo nome de cookie usado no login
 const SESSION_COOKIE_NAME = "admin_session_token";
 
-export async function POST(req: Request) {
+export async function POST() {
   try {
-    const response = NextResponse.json({ success: true });
+    const cookieStore = cookies();
 
     // Remove o cookie que contém o token JWT
-    deleteCookie(SESSION_COOKIE_NAME, {
-      req,
-      res: response,
-      path: "/",
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-    });
+    (
+      await // Remove o cookie que contém o token JWT
+      cookieStore
+    ).delete(SESSION_COOKIE_NAME);
 
-    return response;
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Erro no logout:", error);
     return NextResponse.json(

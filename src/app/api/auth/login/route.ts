@@ -1,7 +1,6 @@
-// src/app/api/auth/login/route.ts
 import bcrypt from "bcrypt";
-import { setCookie } from "cookies-next";
 import jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -12,7 +11,6 @@ const SESSION_COOKIE_NAME = "admin_session_token";
 
 // Esquema de validação para o corpo do login
 const loginSchema = z.object({
-  // Adiciona validação para a senha (ex: mínimo de 8 caracteres)
   password: z
     .string()
     .min(8, { message: "Senha deve ter no mínimo 8 caracteres." }),
@@ -48,10 +46,9 @@ export async function POST(req: Request) {
 
       const response = NextResponse.json({ success: true });
 
-      // Define o cookie com o token JWT
-      setCookie(SESSION_COOKIE_NAME, token, {
-        req,
-        res: response,
+      // Define o cookie com o token JWT usando a API nativa do Next.js
+      const cookieStore = await cookies();
+      cookieStore.set(SESSION_COOKIE_NAME, token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         path: "/",

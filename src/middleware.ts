@@ -1,5 +1,3 @@
-// src/middleware.ts
-import { getCookie } from "cookies-next";
 import jwt from "jsonwebtoken";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
@@ -12,13 +10,11 @@ export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith("/admin")) {
     if (!JWT_SECRET) {
       console.error("JWT_SECRET não está configurado no ambiente.");
-      // Em um cenário real, você pode querer retornar uma página de erro genérica
-      // ou redirecionar para um status de erro, mas evite expor detalhes internos.
       return new NextResponse("Erro de configuração interna.", { status: 500 });
     }
 
-    // Obtém o token JWT do cookie
-    const token = getCookie(SESSION_COOKIE_NAME, { req: request });
+    // Obtém o token JWT do cookie usando a API nativa do Next.js
+    const token = request.cookies.get(SESSION_COOKIE_NAME)?.value;
 
     let isTokenValid = false;
     if (token) {
@@ -34,7 +30,6 @@ export async function middleware(request: NextRequest) {
     }
 
     // Se o token não for válido, redireciona para uma página de login
-    // (ou para a raiz, assumindo que a página raiz lida com o login se não autenticado)
     if (!isTokenValid) {
       const loginUrl = new URL("/", request.url); // Redireciona para a raiz
       // Limpa o cookie inválido/expirado antes de redirecionar
@@ -50,7 +45,5 @@ export async function middleware(request: NextRequest) {
 
 // Define quais rotas o middleware deve interceptar
 export const config = {
-  // Aplica a todas as rotas dentro de /admin, exceto as rotas da API de autenticação
-  // para evitar loops de redirecionamento ou bloqueio do login/logout.
   matcher: ["/admin/:path*"],
 };

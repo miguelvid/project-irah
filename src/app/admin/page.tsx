@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
-import AdminPanelContent from './AdminPanelContent';
-import { AuthProvider } from './providers/AuthProvider';
+import AdminPanelContent from "./AdminPanelContent";
+import { NewAuthProvider } from "./providers/NewAuthProvider";
 
 function LoadingFallBack() {
-    return <div>Carregando...</div>
+  return <div>Carregando...</div>;
 }
 
 export default function AdminPanel() {
   return (
     <Suspense fallback={<LoadingFallBack />}>
-      <AuthProvider> 
+      <NewAuthProvider>
         <AdminPanelContent />
-      </AuthProvider>
+      </NewAuthProvider>
     </Suspense>
   );
 }
