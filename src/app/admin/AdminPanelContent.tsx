@@ -12,7 +12,7 @@ import MenuList from './components/MenuList';
 import { Notification } from './components/Notification';
 import { useApiData } from './hooks/useApi';
 import { useNotification } from './hooks/useNotification';
-import { useAuth } from './providers/AuthProvider';
+import { useAuth } from './providers/NewAuthProvider';
 import { Drink, DrinkFormData, Menu, MenuFormData } from './types/admin';
 
 const restaurantId = process.env.NEXT_PUBLIC_ID_RESTAURANTE;
